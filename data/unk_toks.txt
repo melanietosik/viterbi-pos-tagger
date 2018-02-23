@@ -1,0 +1,8 @@
+--n--
+--unk--
+--unk_digit--
+--unk_punct--
+--unk_noun--
+--unk_verb--
+--unk_adj--
+--unk_adv--

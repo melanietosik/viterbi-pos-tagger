@@ -11,10 +11,17 @@ import viterbi
 
 from collections import defaultdict
 
+# Set of punctuation
 punct = set(string.punctuation)
 
+# Morphology rules used to assign unknown word tokens
+noun_suffix = ["age", "ance", "ence", "dom", "ee", "er", "or", "hood", "ism", "ist", "ty", "ment", "ness", "ry", "ship", "ion", "ling", "scape", "ship", "action", "cy", "ity"]
+verb_suffix = ["ate", "ify", "ize", "ise"]
+adj_suffix = ["able", "ible", "ese", "ful", "i", "ic", "ish", "ive", "ian", "less", "ly", "ous"]
+adv_suffix = ["ward", "wards", "wise"]
 
-def generate_vocab(min_cnt=1, train_fp=settings.TRAIN):
+
+def generate_vocab(min_cnt=2, train_fp=settings.TRAIN):
     """
     Generate vocabulary
     """
@@ -33,9 +40,8 @@ def generate_vocab(min_cnt=1, train_fp=settings.TRAIN):
     # Get list of vobulary words
     vocab = [k for k, v in vocab.items() if v >= min_cnt]
 
-    # Add unknown word/newline token
-    vocab.append("--unk--")
-    vocab.append("--n--")
+    # Add newline/unknown word tokens
+    vocab.extend([line.strip() for line in open(settings.UNK_TOKS, "r")])
 
     # Sort
     vocab = sorted(vocab)
@@ -46,6 +52,37 @@ def generate_vocab(min_cnt=1, train_fp=settings.TRAIN):
     out.close()
 
     return vocab
+
+
+def assign_unk(tok):
+    """
+    Assign unknown word tokens
+    """
+    # Digits
+    if any(char.isdigit() for char in tok):
+        return "--unk_digit--"
+
+    # Punctuation
+    elif any(char in punct for char in tok):
+        return "--unk_punct--"
+
+    # Nouns
+    elif any(tok.endswith(suffix) for suffix in noun_suffix):
+        return "--unk_noun--"
+
+    # Verbs
+    elif any(tok.endswith(suffix) for suffix in verb_suffix):
+        return "--unk_verb--"
+
+    # Adjectives
+    elif any(tok.endswith(suffix) for suffix in adj_suffix):
+        return "--unk_adj--"
+
+    # Adverbs
+    elif any(tok.endswith(suffix) for suffix in adv_suffix):
+        return "--unk_adv--"
+
+    return "--unk--"
 
 
 def train_model(vocab, train_fp=settings.TRAIN):
@@ -63,16 +100,18 @@ def train_model(vocab, train_fp=settings.TRAIN):
         context[prev] += 1
 
         for line in train:
+
             # End of sentence
             if not line.split():
                 word = "--n--"
                 tag = "--s--"
+
             else:
                 word, tag = line.split()
 
                 # Handle unknown words
                 if word not in vocab:
-                    word = "--unk--"
+                    word = assign_unk(word)
 
             trans[" ".join([prev, tag])] += 1
             emiss[" ".join([tag, word])] += 1
@@ -100,6 +139,8 @@ def train_model(vocab, train_fp=settings.TRAIN):
             line = "C {0} {1}\n".format(tag, context[tag])
             model.append(line)
             out.write(line)
+
+    out.close()
 
     return model
 
@@ -214,7 +255,7 @@ def preprocess(vocab, data_fp):
 
             # Handle unknown words
             elif word.strip() not in vocab:
-                word = "--unk--"
+                word = assign_unk(word)
                 data.append(word)
                 continue
 

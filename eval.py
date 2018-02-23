@@ -1,0 +1,54 @@
+import sys
+
+import pandas as pd
+
+from sklearn.metrics import accuracy_score
+
+tags = ['#', '$', "''", '(', ')', ',', '--s--', '.', ':', 'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR', 'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT', 'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM', 'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT', 'WP', 'WP$', 'WRB', '``']
+
+
+def score(key_fp, rep_fp):
+
+    key = open(key_fp, "r").readlines()
+    rep = open(rep_fp, "r").readlines()
+
+    assert(len(key) == len(rep))
+
+    true = []
+    pred = []
+
+    for i in range(len(key)):
+
+        if not (key[i].split() and rep[i].split()):
+            continue
+
+        key[i] = key[i].strip()
+        rep[i] = rep[i].strip()
+
+        # Get key POS tags
+        key_fields = key[i].split("\t")
+        if len(key_fields) != 2:
+            print("Format error in key at line {0}: {1}".format(i, key[i]))
+            sys.exit(1)
+        true.append(key_fields[1])
+
+        # Get response POS tags
+        rep_fields = rep[i].split("\t")
+        if len(rep_fields) != 2:
+            print("Format error in key at line {0}: {1}".format(i, rep[i]))
+            sys.exit(1)
+        pred.append(rep_fields[1])
+
+    assert(len(true) == len(pred))
+
+    print(accuracy_score(true, pred))
+
+    y_true = pd.Series(true, name='true')
+    y_pred = pd.Series(pred, name='pred')
+
+    df = pd.crosstab(y_true, y_pred)
+    df.to_csv("data/confusion_matrix.csv")
+
+
+if __name__ == "__main__":
+    score(sys.argv[1], sys.argv[2])
