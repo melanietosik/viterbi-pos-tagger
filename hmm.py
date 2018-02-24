@@ -11,14 +11,17 @@ import viterbi
 
 from collections import defaultdict
 
-# Set of punctuation
+# Punctuation characters
 punct = set(string.punctuation)
 
 # Morphology rules used to assign unknown word tokens
-noun_suffix = ["age", "ance", "ence", "dom", "ee", "er", "or", "hood", "ism", "ist", "ty", "ment", "ness", "ry", "ship", "ion", "ling", "scape", "ship", "action", "cy", "ity"]
-verb_suffix = ["ate", "ify", "ize", "ise"]
-adj_suffix = ["able", "ible", "ese", "ful", "i", "ic", "ish", "ive", "ian", "less", "ly", "ous"]
+noun_suffix = ["action", "age", "ance", "cy", "dom", "ee", "ence", "er", "hood", "ion", "ism", "ist", "ity", "ling", "ment", "ness", "or", "ry", "scape", "ship", "ty"]
+verb_suffix = ["ate", "ify", "ise", "ize"]
+adj_suffix = ["able", "ese", "ful", "i", "ian", "ible", "ic", "ish", "ive", "less", "ly", "ous"]
 adv_suffix = ["ward", "wards", "wise"]
+
+# Additive smoothing parameter
+alpha = 0.01
 
 
 def generate_vocab(min_cnt=2, train_fp=settings.TRAIN):
@@ -96,8 +99,8 @@ def train_model(vocab, train_fp=settings.TRAIN):
 
     with open(train_fp, "r") as train:
 
+        # Start state
         prev = "--s--"
-        context[prev] += 1
 
         for line in train:
 
@@ -108,7 +111,6 @@ def train_model(vocab, train_fp=settings.TRAIN):
 
             else:
                 word, tag = line.split()
-
                 # Handle unknown words
                 if word not in vocab:
                     word = assign_unk(word)
@@ -198,16 +200,17 @@ def construct_A(trans, context, tags):
             prev = tags[i]
             tag = tags[j]
 
-            # No smoothing for start probabilities
-            if prev == "--s--":
-                A[i][j] = 0
-
-            # Compute smoothed transition probability#
+            # Compute smoothed transition probability
             count = 0
             if ((prev in trans) and (tag in trans[prev])):
                 count = trans[prev][tag]
 
-            A[i][j] = (count + 1) / (context[prev] + K)
+            A[i][j] = (count + alpha) / (context[prev] + alpha * K)
+
+    # Assert proper probability distribution
+    for i in range(len(A)):
+        row_sum = sum([x for x in A[i]])
+        assert(abs(row_sum - 1) < 1e-8)
 
     return A
 
@@ -231,7 +234,12 @@ def construct_B(emiss, context, tags, vocab):
             if word in emiss[tag]:
                 count = emiss[tag][word]
 
-            B[i][j] = (count + 1) / (context[tag] + N)
+            B[i][j] = (count + alpha) / (context[tag] + alpha * N)
+
+    # Assert proper probability distribution
+    for i in range(len(B)):
+        row_sum = sum([x for x in B[i]])
+        assert(abs(row_sum - 1) < 1e-8)
 
     return B
 
