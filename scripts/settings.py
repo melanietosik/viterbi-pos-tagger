@@ -1,5 +1,4 @@
 TRAIN = "WSJ/WSJ_02-21.pos"
-TRAIN_ALL = "WSJ/WSJ_02-21+24.pos"
 
 DEV_WORDS = "WSJ/WSJ_24.words"
 DEV_POS = "WSJ/WSJ_24.pos"
