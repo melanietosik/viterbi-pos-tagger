@@ -4,9 +4,17 @@ A [GitHub repository for this project](https://github.com/melanietosik/viterbi-p
 
 ## Overview
 
-The goal of this project was to implement and train a [part-of-speech (POS) tagger](https://en.wikipedia.org/wiki/Part-of-speech_tagging), as described in [Chapter 10](https://web.stanford.edu/~jurafsky/slp3/10.pdf) of the [3rd edition of "Speech and Language Processing"](https://web.stanford.edu/~jurafsky/slp3/) (Jurafsky and Martin).
+The goal of this project was to implement and train a [part-of-speech (POS) tagger](https://en.wikipedia.org/wiki/Part-of-speech_tagging), as described in ["Speech and Language Processing"](https://web.stanford.edu/~jurafsky/slp3/10.pdf) (Jurafsky and Martin).
 
 A [hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model) is implemented to estimate the transition and emission probabilities from the training data. The [Viterbi algorithm](https://en.wikipedia.org/wiki/Viterbi_algorithm) is used for decoding, i.e. finding the most likely sequence of hidden states (POS tags) for previously unseen observations (sentences).
+
+## Implementation details
+
+The HMM is trained on bigram distributions (_pairs_ of adjacent tokens). The first pass over the training data generates a fixed list of vocabulary tokens. Any token occurring less than twice in the training data is assigned a [special unknown word token](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/data/unk_toks.txt) based on a few selected [morphological idiosyncrasies](https://wac.colostate.edu/books/sound/chapter5.pdf) of English word classes (e.g. most tokens with the suffix "-ism" are nouns). The second pass uses the transformed training data to collect the bigram transition and emission counts and saves them to a model file.
+
+To decode the development and test splits, the input sequence is first transformed according to the unknown word rules mentioned above. The transition and emission counts are then converted to proper probability distributions, using [additive smoothing](https://en.wikipedia.org/wiki/Additive_smoothing) to estimate probabilities for transitions/emissions that have not been observed in the training data. A pseudo count `alpha > 0` is used as the smoothing parameter, with `alpha = 0.001` giving best results on the development split (see results below).
+
+For both training and decoding, the input sequences are treated as one continuous sequence of tokens. Sentence boundaries are marked by introducing an artificial "start-of-sentence" state ("--s--") occuring with "newline" tokens ("--n--"). It takes about 60 seconds to train the model and decode the development split.
 
 ## Run the tagger
 
@@ -74,7 +82,7 @@ As usual, section 24 of the WSJ corpus is used as the development set. The tagge
 
 Initially, Viterbi decoding with a uniform probability for unknown words and add-one smoothing gave a tagging accuracy of 92.88% on the development set. Adding morphological features to improve the handling of unknown words increased accuracy to a score of 93.13%. Finally, tuning the additive smoothing parameter resulted in a **tagging accuracy score of 95.09% on the development set**.
 
-For more details, please see [`doc/accuracy.md`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/accuracy.md).
+For more details, please see [`docs/accuracy.md`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/accuracy.md).
 
 | alpha | accuracy score     |
 |------:|-------------------:|

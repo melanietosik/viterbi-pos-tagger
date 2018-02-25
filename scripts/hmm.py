@@ -305,7 +305,7 @@ def tag(tags, vocab, A, B):
                 out.write("\n")
             else:
                 out.write("{0}\t{1}\n".format(word, tag))
-    
+
     out.close()
 
 
