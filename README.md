@@ -72,8 +72,8 @@ Then run the evaluation script as follows:
 To evaluate the results on the development and test set, run:
 
 ```
-[viterbi-pos-tagger]$ python scripts/eval.py WSJ/WSJ_23.pos output/wsj_23.pos  # test
 [viterbi-pos-tagger]$ python scripts/eval.py WSJ/WSJ_24.pos output/wsj_24.pos  # dev
+[viterbi-pos-tagger]$ #python scripts/eval.py WSJ/WSJ_23.pos output/wsj_23.pos  # test
 ```
 
 ### Results on the development set
