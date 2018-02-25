@@ -3,7 +3,7 @@ import sys
 import pandas as pd
 from sklearn.metrics import accuracy_score, classification_report
 
-tags = ['#', '$', "''", '(', ')', ',', '.', ':', 'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR', 'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT', 'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM', 'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT', 'WP', 'WP$', 'WRB', '``']
+import settings
 
 
 def score(key_fp, rep_fp):
@@ -40,14 +40,14 @@ def score(key_fp, rep_fp):
 
     assert(len(true) == len(pred))
 
-    print(classification_report(true, pred, tags))
+    print(classification_report(true, pred, settings.TAGS_WSJ))
     print("Accuracy score: {0}".format(accuracy_score(true, pred)))
 
     y_true = pd.Series(true, name='true')
     y_pred = pd.Series(pred, name='pred')
 
     df = pd.crosstab(y_true, y_pred)
-    df.to_csv("data/confusion_matrix.csv")
+    df.to_csv(settings.CONFUSION_MATRIX)
 
 
 if __name__ == "__main__":
