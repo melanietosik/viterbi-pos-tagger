@@ -5,6 +5,7 @@ from __future__ import division
 
 import os
 import string
+import sys
 
 import settings
 import viterbi
@@ -21,7 +22,7 @@ adj_suffix = ["able", "ese", "ful", "i", "ian", "ible", "ic", "ish", "ive", "les
 adv_suffix = ["ward", "wards", "wise"]
 
 # Additive smoothing parameter
-alpha = 0.01
+alpha = 0.001
 
 
 def generate_vocab(min_cnt=2, train_fp=settings.TRAIN):
@@ -171,7 +172,7 @@ def load_model(model):
     return emiss, trans, context
 
 
-def decode_seq(model, vocab, data_fp=settings.DEV_WORDS):
+def decode_seq(model, vocab):
     """
     Decode sequences
     """
@@ -184,7 +185,7 @@ def decode_seq(model, vocab, data_fp=settings.DEV_WORDS):
     # Emission matrix
     B = construct_B(emiss, context, tags, vocab)
 
-    tag(tags, vocab, A, B, data_fp)
+    tag(tags, vocab, A, B)
 
 
 def construct_A(trans, context, tags):
@@ -274,13 +275,16 @@ def preprocess(vocab, data_fp):
     return data
 
 
-def tag(tags, vocab, A, B, data_fp):
+def tag(tags, vocab, A, B):
     """
     Tag development/test data
     """
     tagged = []
 
     # Preprocess data
+    data_fp = settings.DEV_WORDS
+    if split == "test":
+        data_fp = settings.TEST_WORDS
     data = preprocess(vocab, data_fp)
 
     # Decode
@@ -291,12 +295,17 @@ def tag(tags, vocab, A, B, data_fp):
         tagged.append((word, tag))
 
     # Write output file
-    with open(data_fp + ".tagged", "w") as out:
+    out_fp = settings.DEV_OUT
+    if split == "test":
+        out_fp = settings.TEST_OUT
+
+    with open(out_fp, "w") as out:
         for word, tag in tagged:
             if word == "--n--":
                 out.write("\n")
             else:
                 out.write("{0}\t{1}\n".format(word, tag))
+    
     out.close()
 
 
@@ -304,6 +313,12 @@ def main():
     """
     main()
     """
+    global split
+    split = sys.argv[1]
+    if split not in ["dev", "test"]:
+        print('Error: split options are "dev" or "test"')
+        sys.exit(1)
+
     if not os.path.isfile(settings.VOCAB):
         print("Generating vocabulary...")
         vocab = generate_vocab()
@@ -316,11 +331,15 @@ def main():
     else:
         model = [line.strip() for line in open(settings.MODEL, "r")]
 
-    print("Decoding...")
-    decode_seq(model, vocab, settings.DEV_WORDS)
+    print("Decoding {0} split...".format(split))
+    decode_seq(model, vocab)
 
     print("Done")
 
 
 if __name__ == "__main__":
+
+    if len(sys.argv) != 2:
+        print("Usage: python3 hmm.py <dev|test>")
+        sys.exit(1)
     main()

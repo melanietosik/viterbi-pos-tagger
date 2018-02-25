@@ -1,10 +1,9 @@
 import sys
 
 import pandas as pd
+from sklearn.metrics import accuracy_score, classification_report
 
-from sklearn.metrics import accuracy_score
-
-tags = ['#', '$', "''", '(', ')', ',', '--s--', '.', ':', 'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR', 'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT', 'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM', 'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT', 'WP', 'WP$', 'WRB', '``']
+tags = ['#', '$', "''", '(', ')', ',', '.', ':', 'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR', 'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT', 'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM', 'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT', 'WP', 'WP$', 'WRB', '``']
 
 
 def score(key_fp, rep_fp):
@@ -41,7 +40,8 @@ def score(key_fp, rep_fp):
 
     assert(len(true) == len(pred))
 
-    print(accuracy_score(true, pred))
+    print(classification_report(true, pred, tags))
+    print("Accuracy score: {0}".format(accuracy_score(true, pred)))
 
     y_true = pd.Series(true, name='true')
     y_pred = pd.Series(pred, name='pred')
@@ -51,4 +51,9 @@ def score(key_fp, rep_fp):
 
 
 if __name__ == "__main__":
-    score(sys.argv[1], sys.argv[2])
+
+    if len(sys.argv) == 3:
+        score(sys.argv[1], sys.argv[2])
+    else:
+        print("Usage: python eval.py <TRUE .pos> <PREDICTED .pos>")
+        sys.exit(1)

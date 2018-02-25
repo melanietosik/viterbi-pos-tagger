@@ -1748,8 +1748,8 @@ the	DT
 --unk--	NNP
 British	NNP
 ``	``
---unk--	FW
-On	FW
+--unk--	NNP
+On	NNP
 ''	''
 movies	NNS
 of	IN
@@ -1899,7 +1899,7 @@ searching	VBG
 the	DT
 office	NN
 for	IN
---unk--	JJ
+--unk--	VBG
 Japanese	JJ
 bonds	NNS
 that	WDT
@@ -2535,7 +2535,7 @@ would	MD
 appear	VB
 that	DT
 nothing	NN
-substantive	WDT
+substantive	JJ
 has	VBZ
 changed	VBN
 .	.
@@ -3532,9 +3532,9 @@ radio	NN
 ,	,
 ''	''
 says	VBZ
---unk--	NNP
-de	NNP
---unk--	NNP
+--unk--	FW
+de	FW
+--unk--	FW
 ,	,
 a	DT
 55-year-old	JJ
@@ -5317,7 +5317,7 @@ government	NN
 --unk--	NNS
 ,	,
 where	WRB
-many	JJ
+many	PDT
 a	DT
 stagnant	JJ
 pot	NN
@@ -5389,8 +5389,8 @@ for	IN
 youth	NN
 conservation	NN
 (	(
-a	DT
-la	NNP
+a	FW
+la	FW
 Sen.	NNP
 Chris	NNP
 Dodd	NNP
@@ -5759,7 +5759,7 @@ immigration	NN
 ,	,
 rather	RB
 than	IN
---unk--	JJ
+--unk--	VBG
 high	JJ
 school	NN
 graduates	NNS
@@ -5950,7 +5950,7 @@ independent	JJ
 foundation	NN
 in	IN
 ``	``
---unk--	FW
+--unk--	UH
 ''	''
 federal	JJ
 funds	NNS
@@ -6928,7 +6928,7 @@ national	JJ
 mean	NN
 ?	.
 
-Would	``
+Would	PDT
 the	DT
 program	NN
 be	VB
@@ -7034,7 +7034,7 @@ five	CD
 :	:
 1	CD
 .	.
-Consider	--s--
+Consider	VB
 the	DT
 ingredients	NNS
 ,	,
@@ -7065,7 +7065,7 @@ crucial	JJ
 ways	NNS
 .	.
 
-2	CD
+2	LS
 .	.
 ``	``
 Service	NNP
@@ -7184,7 +7184,7 @@ that	IN
 service	NN
 ?	.
 
-3	CD
+3	LS
 .	.
 --unk--	NNP
 is	VBZ
@@ -7296,9 +7296,9 @@ need	VBP
 doing	VBG
 .	.
 
-4	CD
+4	LS
 .	.
-Good	--s--
+Good	JJ
 programs	NNS
 are	VBP
 not	RB
@@ -7438,7 +7438,7 @@ a	DT
 year	NN
 .	.
 
-Are	``
+Are	VBP
 they	PRP
 worth	JJ
 that	IN
@@ -7589,7 +7589,7 @@ have	VBP
 grown	VBN
 up	RP
 in	IN
---unk--	JJ
+--unk--	VBG
 grim	JJ
 circumstances	NNS
 ,	,
@@ -8015,8 +8015,8 @@ that	DT
 anything	NN
 you	PRP
 do	VBP
-that	IN
-looks	NNS
+that	WDT
+looks	VBZ
 like	IN
 you	PRP
 are	VBP
@@ -8484,7 +8484,7 @@ EST	NN
 --	:
 when	WRB
 stocks	NNS
-there	RB
+there	EX
 plunged	VBD
 --	:
 and	CC
@@ -9010,7 +9010,7 @@ that	DT
 phone	NN
 .	.
 
-Walk	``
+Walk	VBP
 around	IN
 the	DT
 room	NN
@@ -9455,7 +9455,7 @@ good	JJ
 time	NN
 to	TO
 jump	VB
-in	IN
+in	RP
 and	CC
 buy	VB
 .	.
@@ -9547,7 +9547,7 @@ n't	RB
 wise	JJ
 to	TO
 be	VB
-in	IN
+in	RP
 and	CC
 out	RB
 ''	''
@@ -9736,7 +9736,7 @@ for	IN
 A.G.	NNP
 Edwards	NNP
 &	CC
-Sons	NNP
+Sons	NNPS
 in	IN
 St.	NNP
 Louis	NNP
@@ -10216,7 +10216,7 @@ who	WP
 want	VBP
 to	TO
 stay	VB
-in	IN
+in	RP
 but	CC
 hedge	VB
 their	PRP$
@@ -11382,7 +11382,7 @@ Big	NNP
 Board	NNP
 's	POS
 ``	``
---unk--	FW
+--unk--	UH
 ''	''
 computer	NN
 program	NN
@@ -13043,7 +13043,7 @@ achieved	VBN
 some	DT
 successes	NNS
 in	IN
---unk--	JJ
+--unk--	VBG
 runaway	JJ
 economic	JJ
 growth	NN
@@ -13180,7 +13180,7 @@ austerity	NN
 measures	NNS
 was	VBD
 to	TO
-slice	VB
+slice	NN
 economic	JJ
 growth	NN
 ,	,
@@ -14731,7 +14731,7 @@ Associates	NNPS
 .	.
 
 Eastern	NNP
-Utilities	NNP
+Utilities	NNPS
 has	VBZ
 offered	VBN
 $	$
@@ -17867,8 +17867,8 @@ easy	JJ
 
 Friday	NNP
 's	POS
-Market	NN
-Activity	.
+Market	NNP
+Activity	NNP
 
 Prices	NNS
 of	IN
@@ -20449,7 +20449,7 @@ early	RB
 next	JJ
 year	NN
 by	IN
-frustrating	PDT
+frustrating	JJ
 the	DT
 procedures	NNS
 for	IN
@@ -21134,7 +21134,7 @@ transportation	NN
 off	RB
 --unk_digit--	CD
 ;	:
-utilities	$
+utilities	NNS
 --unk_digit--	CD
 ,	,
 off	RB
@@ -21707,7 +21707,7 @@ in	IN
 legal	JJ
 fees	NNS
 to	TO
-defunct	.
+defunct	JJ
 
 The	DT
 National	NNP
@@ -22186,7 +22186,7 @@ firm	NN
 in	IN
 light	NN
 of	IN
-relaxed	DT
+relaxed	VBN
 trade	NN
 barriers	NNS
 between	IN
@@ -22751,7 +22751,7 @@ Matsushita	NNP
 Components	NNP
 G.m.b	NNP
 .	.
-H	)
+H	NNP
 .	.
 
 It	PRP
@@ -23009,7 +23009,7 @@ Mr.	NNP
 Ruby	NNP
 and	CC
 Ms.	NNP
---unk--	NNP
+--unk--	NNPS
 are	VBP
 married	VBN
 to	TO
@@ -25271,7 +25271,7 @@ the	DT
 stock	NN
 viewed	VBN
 as	IN
-most	JJS
+most	RBS
 vulnerable	JJ
 is	VBZ
 American	NNP
@@ -27748,7 +27748,7 @@ take	VB
 a	DT
 short-term	JJ
 (	(
-three-year	LS
+three-year	JJ
 )	)
 lease	NN
 and	CC
@@ -30967,7 +30967,7 @@ the	DT
 foreign	JJ
 deals	NNS
 will	MD
-divide	VB
+divide	VBP
 the	DT
 Hollywood	NNP
 opposition	NN
@@ -31301,7 +31301,7 @@ rules	NNS
 Studios	NNPS
 are	VBP
 ``	``
---unk--	FW
+--unk--	UH
 ''	''
 to	TO
 get	VB
@@ -32080,7 +32080,7 @@ its	PRP$
 popular	JJ
 --unk_punct--	NN
 ``	``
---unk--	FW
+--unk--	UH
 ''	''
 --	:
 it	PRP
