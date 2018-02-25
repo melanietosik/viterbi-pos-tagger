@@ -13,7 +13,7 @@ MODEL = "data/hmm_model.txt"
 VOCAB = "data/hmm_vocab.txt"
 UNK_TOKS = "data/unk_toks.txt"
 
-CONFUSION_MATRIX = "doc/confusion_matrix.csv"
+CONFUSION_MATRIX = "docs/confusion_matrix.csv"
 
 TAGS_WSJ = [
     "#",

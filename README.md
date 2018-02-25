@@ -1,41 +1,80 @@
 # Viterbi part-of-speech (POS) tagger
 
+A [GitHub repository for this project](https://github.com/melanietosik/viterbi-pos-tagger) is available online.
+
 ## Overview
 
+The goal of this project was to implement and train a [part-of-speech (POS) tagger](https://en.wikipedia.org/wiki/Part-of-speech_tagging), as described in [Chapter 10](https://web.stanford.edu/~jurafsky/slp3/10.pdf) of the [3rd edition of "Speech and Language Processing"](https://web.stanford.edu/~jurafsky/slp3/) (Jurafsky and Martin).
+
+A [hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model) is implemented to estimate the transition and emission probabilities from the training data. The [Viterbi algorithm](https://en.wikipedia.org/wiki/Viterbi_algorithm) is used for decoding, i.e. finding the most likely sequence of hidden states (POS tags) for previously unseen observations (sentences).
+
 ## Run the tagger
+
+The HMM is implemented in [`scripts/hmm.py`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/scripts/hmm.py). The trained model with transition, emission, and state counts is stored in [`data/hmm_model.txt`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/data/hmm_model.txt). A sorted list of vocabulary tokens is stored in [`data/hmm_vocab.txt`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/data/hmm_vocab.txt).
+
+The Viterbi algorithm is implemented in [`scripts/viterbi.py`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/scripts/viterbi.py). Output files containing the predicted POS tags are written to the [`output/`](https://github.com/melanietosik/viterbi-pos-tagger/tree/master/output) directory. All settings can be adjusted by editing the paths specified in [`scripts/settings.py`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/scripts/settings.py).
+
+To **(re-)run the tagger on the development and test set**, run:
 
 ```
 [viterbi-pos-tagger]$ python3.6 scripts/hmm.py dev
 [viterbi-pos-tagger]$ python3.6 scripts/hmm.py test
 ```
 
+You should expect similar output pretty much immediately:
+
+```
+[viterbi-pos-tagger]$ python3.6 scripts/hmm.py dev
+Generating vocabulary...
+Training model...
+Decoding dev split...
+5000 words processed
+10000 words processed
+15000 words processed
+20000 words processed
+25000 words processed
+30000 words processed
+Done
+python3.6 scripts/hmm.py dev  64.67s user 0.33s system 99% cpu 1:05.60 total
+```
+
+Please note that unless you run `rm -rf data/hmm*` to delete the old model files, they will _not_ be regenerated during the next run.
+
+
 ## Evaluation
 
-The evaluation script is implemented in [`scripts/eval.py`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/eval.py). It prints a [text report](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html) showing the main classification metrics on the list of POS tags used in the HMM, as well as the overall [accuracy classification score](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html). It also generates a [confusion matrix](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.crosstab.html), which is written to [`doc/confusion_matrix.csv`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/data/confusion_matrix.csv).
+The evaluation script is implemented in [`scripts/eval.py`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/eval.py). It prints a [text report](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html) showing the main classification metrics, as well as the overall [accuracy classification score](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html). It also writes a [confusion matrix](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.crosstab.html) to [`docs/confusion_matrix.csv`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/data/confusion_matrix.csv).
 
 ### Run the evaluation script
+
+First create a [virtual environment](https://virtualenv.pypa.io/en/stable/) and `pip install` all the requirements:
 
 ```
 [viterbi-pos-tagger]$ virtualenv -p python3.6 env/
 [viterbi-pos-tagger]$ source env/bin/activate
 [viterbi-pos-tagger]$ pip install -r requirements.txt
+```
+
+Then run the evaluation script as follows:
+
+```
 [viterbi-pos-tagger]$ python scripts/eval.py <TRUE .pos> <PREDICTED .pos>
 ```
 
-To evaluate the results on the development and test set, run the following two commands, respectively:
+To evaluate the results on the development and test set, run:
 
 ```
-[viterbi-pos-tagger]$ python scripts/eval.py WSJ/WSJ_23.pos output/wsj_23.pos
-[viterbi-pos-tagger]$ python scripts/eval.py WSJ/WSJ_24.pos output/wsj_24.pos
+[viterbi-pos-tagger]$ python scripts/eval.py WSJ/WSJ_23.pos output/wsj_23.pos  # test
+[viterbi-pos-tagger]$ python scripts/eval.py WSJ/WSJ_24.pos output/wsj_24.pos  # dev
 ```
 
 ### Results on the development set
 
-As usual, section 24 of the WSJ corpus is used as the development set. The tagged output file for the development set is `output/wsj_24.pos`. The original corpus files are [`WSJ/WSJ_24.words`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_24.words) and [`WSJ/WSJ_24.pos`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_24.pos).
+As usual, section 24 of the WSJ corpus is used as the development set. The tagged output file for the development set is [`output/wsj_24.pos`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/output/wsj_24.pos). The original corpus files are [`WSJ/WSJ_24.words`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_24.words) and [`WSJ/WSJ_24.pos`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_24.pos).
 
 Initially, Viterbi decoding with a uniform probability for unknown words and add-one smoothing gave a tagging accuracy of 92.88% on the development set. Adding morphological features to improve the handling of unknown words increased accuracy to a score of 93.13%. Finally, tuning the additive smoothing parameter resulted in a **tagging accuracy score of 95.09% on the development set**.
 
-The table below illustrates a few selected model accuracies at various stages of the tuning process. For more details, please see [`doc/accuracy.md`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/accuracy.md)
+For more details, please see [`doc/accuracy.md`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/accuracy.md).
 
 | alpha | accuracy score     |
 |------:|-------------------:|
@@ -101,6 +140,6 @@ avg / total       0.95      0.95      0.95     32853
 
 ### Results on the test set
 
-Section 23 of the WSJ corpus is usually reserved for testing. The tagged output file for the test set is `output/wsj_23.pos`. The original corpus file is [`WSJ/WSJ_23.words`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_23.words). Note that the original `.pos` file for the test set has not yet been released.
+Section 23 of the WSJ corpus is usually reserved for testing. The tagged output file for the test set is [`output/wsj_23.pos`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/output/wsj_23.pos). The original corpus file is [`WSJ/WSJ_23.words`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_23.words). Note that the original `.pos` file for the test set has not yet been released.
 
 To achieve optimal results on the test set, the additive smoothing alpha parameter is currently set to `alpha = 0.001`. The training file is set to [`WSJ/WSJ_02-21+24.pos`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_02-21%2B24.pos), which contains both the original training data and the development data combined.
