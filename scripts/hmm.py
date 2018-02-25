@@ -249,7 +249,8 @@ def preprocess(vocab, data_fp):
     """
     Preprocess data
     """
-    data = []
+    orig = []
+    prep = []
 
     # Read data
     with open(data_fp, "r") as data_file:
@@ -258,21 +259,26 @@ def preprocess(vocab, data_fp):
 
             # End of sentence
             if not word.split():
+                orig.append(word.strip())
                 word = "--n--"
-                data.append(word)
+                prep.append(word)
                 continue
 
             # Handle unknown words
             elif word.strip() not in vocab:
+                orig.append(word.strip())
                 word = assign_unk(word)
-                data.append(word)
+                prep.append(word)
                 continue
 
             else:
-                data.append(word.strip())
+                orig.append(word.strip())
+                prep.append(word.strip())
 
-    assert(len(data) == len(open(data_fp, "r").readlines()))
-    return data
+    assert(len(orig) == len(open(data_fp, "r").readlines()))
+    assert(len(prep) == len(open(data_fp, "r").readlines()))
+
+    return orig, prep
 
 
 def tag(tags, vocab, A, B):
@@ -285,13 +291,13 @@ def tag(tags, vocab, A, B):
     data_fp = settings.DEV_WORDS
     if split == "test":
         data_fp = settings.TEST_WORDS
-    data = preprocess(vocab, data_fp)
+    orig, prep = preprocess(vocab, data_fp)
 
     # Decode
-    decoder = viterbi.Viterbi(vocab, tags, data, A, B)
+    decoder = viterbi.Viterbi(vocab, tags, prep, A, B)
     pred = decoder.decode()
 
-    for word, tag in zip(data, pred):
+    for word, tag in zip(orig, pred):
         tagged.append((word, tag))
 
     # Write output file
@@ -301,7 +307,7 @@ def tag(tags, vocab, A, B):
 
     with open(out_fp, "w") as out:
         for word, tag in tagged:
-            if word == "--n--":
+            if not word:
                 out.write("\n")
             else:
                 out.write("{0}\t{1}\n".format(word, tag))

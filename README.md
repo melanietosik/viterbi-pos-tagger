@@ -150,4 +150,4 @@ avg / total       0.95      0.95      0.95     32853
 
 Section 23 of the WSJ corpus is usually reserved for testing. The tagged output file for the test set is [`output/wsj_23.pos`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/output/wsj_23.pos). The original corpus file is [`WSJ/WSJ_23.words`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_23.words). Note that the original `.pos` file for the test set has not yet been released.
 
-To achieve optimal results on the test set, the additive smoothing alpha parameter is currently set to `alpha = 0.001`. The training file is set to [`WSJ/WSJ_02-21+24.pos`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_02-21%2B24.pos), which contains both the original training data and the development data combined.
+To achieve optimal results on the test split, the additive smoothing alpha parameter is set to `alpha = 0.001`. The training file is set to [`WSJ/WSJ_02-21.pos`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_02-21.pos).
