@@ -36,14 +36,14 @@ You should expect similar output pretty much immediately:
 Generating vocabulary...
 Training model...
 Decoding dev split...
-5000 words processed
-10000 words processed
-15000 words processed
-20000 words processed
-25000 words processed
-30000 words processed
+Words processed:     5000
+Words processed:    10000
+Words processed:    15000
+Words processed:    20000
+Words processed:    25000
+Words processed:    30000
 Done
-python3.6 scripts/hmm.py dev  64.67s user 0.33s system 99% cpu 1:05.60 total
+python scripts/hmm.py dev  64.14s user 0.75s system 95% cpu 1:07.72 total
 ```
 
 Please note that unless you run `rm -rf data/hmm*` to delete the old model files, they will _not_ be regenerated during the next run.

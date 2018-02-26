@@ -69,7 +69,7 @@ class Viterbi():
         for i in range(1, self.T):
 
             if i % 5000 == 0:
-                print("{0} words processed".format(i))
+                print("Words processed: {:>8}".format(i))
 
             for j in range(self.K):
 

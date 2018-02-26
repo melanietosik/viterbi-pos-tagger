@@ -1,3 +1,6 @@
+# Melanie Tosik
+# NLP, Viterbi part-of-speech (POS) tagger
+
 import sys
 
 import pandas as pd

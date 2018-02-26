@@ -1,3 +1,6 @@
+# Melanie Tosik
+# NLP, Viterbi part-of-speech (POS) tagger
+
 TRAIN = "WSJ/WSJ_02-21.pos"
 
 DEV_WORDS = "WSJ/WSJ_24.words"
