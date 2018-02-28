@@ -48,7 +48,6 @@ python scripts/hmm.py dev  64.14s user 0.75s system 95% cpu 1:07.72 total
 
 Please note that unless you run `rm -rf data/hmm*` to delete the old model files, they will _not_ be regenerated during the next run.
 
-
 ## Evaluation
 
 The evaluation script is implemented in [`scripts/eval.py`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/eval.py). It prints a [text report](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html) showing the main classification metrics, as well as the overall [accuracy classification score](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html). It also writes a [confusion matrix](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.crosstab.html) to [`docs/confusion_matrix.csv`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/data/confusion_matrix.csv).
