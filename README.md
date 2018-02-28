@@ -81,7 +81,7 @@ As usual, section 24 of the WSJ corpus is used as the development set. The tagge
 
 Initially, Viterbi decoding with a uniform probability for unknown words and add-one smoothing gave a tagging accuracy of 92.88% on the development set. Adding morphological features to improve the handling of unknown words increased accuracy to a score of 93.34%. Finally, tuning the additive smoothing parameter resulted in a **tagging accuracy score of 95.31% on the development set**.
 
-For more details, please see [`docs/accuracy.md`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/accuracy.md).
+For more details, please see [`docs/accuracy.md`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/docs/accuracy.md).
 
 | alpha | accuracy score     |
 |------:|-------------------:|
