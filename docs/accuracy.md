@@ -10,7 +10,7 @@ Accuracy score: 0.9288345052202234
 - unknown word tokens assigned based on morphological features
 - add-one smoothing
 
-Accuracy score: 0.9313000334824826
+Accuracy score: 0.9334307369190028
 
 #### Additive smoothing
 
@@ -19,33 +19,28 @@ Accuracy score: 0.9313000334824826
 
 ##### alpha=1.0
 
-Accuracy score: 0.9313000334824826
+Accuracy score: 0.9334307369190028
 
 ##### alpha=0.5
 
-Accuracy score: 0.9398228472285636
+Accuracy score: 0.9419839892856056
 
 ##### alpha=0.2
 
-Accuracy score: 0.9452104830609077
+Accuracy score: 0.9474020637384714
 
 ##### alpha=0.1
 
-Accuracy score: 0.9477064499436886
+Accuracy score: 0.9498980306212522
 
 ##### alpha=0.01
 
-Accuracy score: 0.9505676802727301
+Accuracy score: 0.9527896995708155
 
 ##### alpha=0.001
 
-Accuracy score: 0.9508720664779472
+Accuracy score: 0.953063647155511
 
 ##### alpha=0.0001
 
-Accuracy score: 0.950902505098469
-
-##### alpha=0.00001
-
-Accuracy score: 0.950902505098469
-
+Accuracy score: 0.953063647155511

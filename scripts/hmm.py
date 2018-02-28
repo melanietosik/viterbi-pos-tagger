@@ -70,6 +70,10 @@ def assign_unk(tok):
     elif any(char in punct for char in tok):
         return "--unk_punct--"
 
+    # Upper-case
+    elif any(char.isupper() for char in tok):
+        return "--unk_upper--"
+
     # Nouns
     elif any(tok.endswith(suffix) for suffix in noun_suffix):
         return "--unk_noun--"

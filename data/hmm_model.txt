@@ -1435,13 +1435,13 @@ E POS 's 8079
 E NNP Goodman 7
 E NNP Theatre 5
 E ( ( 1153
-E VBN --unk-- 555
-E NNS --unk-- 1781
+E VBN --unk_upper-- 93
+E NNS --unk_upper-- 350
 E VBP Take 1
 E DT the 41098
 E NN Stage 1
 E IN in 14957
-E NNP --unk-- 3860
+E NNP --unk_upper-- 4635
 E NNP City 132
 E , , 48723
 E NN Leisure 2
@@ -1463,7 +1463,6 @@ E . . 39020
 E --s-- --n-- 39832
 E NNP Ms. 228
 E VBZ plays 18
-E NNP --unk_adj-- 262
 E NNP Rolls-Royce 2
 E NNP Motor 96
 E NNPS Cars 2
@@ -1488,7 +1487,6 @@ E NN year 2239
 E VBD sold 123
 E CD --unk_digit-- 2912
 E NNP Howard 24
-E NNP --unk_noun-- 495
 E NN president 887
 E CC and 16113
 E JJ chief 317
@@ -1634,7 +1632,7 @@ E NNS stocks 550
 E RB altogether 12
 E RB historically 12
 E VBN paid 142
-E NN --unk_noun-- 956
+E NN --unk_noun-- 858
 E NN ideal 5
 E JJ level 3
 E NN playing 9
@@ -1724,7 +1722,7 @@ E VB improve 79
 E ( { 213
 E NN law 298
 E ) } 216
-E VBG --unk-- 664
+E VBG --unk-- 517
 E RBR more 786
 E RB closely 82
 E JJ contemporary 7
@@ -1740,7 +1738,8 @@ E VBP say 525
 E VB have 1108
 E NN ability 86
 E VB spot 6
-E JJ --unk-- 915
+E JJ --unk-- 763
+E NNS --unk-- 1432
 E NN trading 906
 E NN activity 109
 E NN buying 98
@@ -1820,7 +1819,7 @@ E NNS representatives 41
 E NNP Congress 310
 E VBD added 261
 E RB likely 47
-E JJ --unk_adj-- 487
+E JJ --unk_adj-- 419
 E NN legislation 111
 E VBD required 15
 E JJ timely 8
@@ -1842,7 +1841,7 @@ E NN investment 504
 E CD 1.2 53
 E CD million 4384
 E NNS participants 36
-E NNPS --unk-- 198
+E NNPS --unk_upper-- 198
 E NNP Insurance 78
 E NNP --unk_punct-- 338
 E NNP Retirement 8
@@ -1977,7 +1976,7 @@ E NN technology 172
 E NN group 644
 E NN position 194
 E JJ Solo 1
-E NN --unk-- 1565
+E NN --unk-- 1307
 E NNS players 58
 E VBP have 1932
 E JJ creative 28
@@ -1997,7 +1996,7 @@ E : : 1337
 E PRP He 857
 E VBZ commissions 1
 E RB splendidly 2
-E VBZ --unk-- 385
+E VBZ --unk-- 341
 E NNS scores 14
 E VBZ does 486
 E NN conducting 1
@@ -2009,7 +2008,7 @@ E RB over 40
 E RB again 185
 E NNP Richard 119
 E NNP Stoltzman 10
-E JJR --unk_noun-- 53
+E JJR --unk_noun-- 51
 E NN approach 60
 E NNS Years 2
 E RB ago 337
@@ -2027,13 +2026,14 @@ E NNS audiences 14
 E RP over 115
 E JJ dreaded 1
 E IN like 382
+E NN --unk_upper-- 365
 E NN End 4
 E NN Time 13
 E NN Today 38
 E NN clarinetist 3
 E RB mostly 66
 E VBN dropped 25
-E JJ --unk_noun-- 118
+E JJ --unk_noun-- 98
 E NN work 268
 E IN though 188
 E NN touch 11
@@ -2072,13 +2072,14 @@ E JJ commercial 151
 E JJ lightweight 3
 E VBZ believes 87
 E WP what 545
-E RB --unk_adj-- 353
+E RB --unk_adj-- 297
 E PRP$ His 116
 E JJ recent 426
 E NN appearance 14
 E NNP Metropolitan 19
 E NNP Museum 10
 E VBN dubbed 13
+E JJ --unk_upper-- 244
 E NN case 313
 E NN point 247
 E PRP It 1158
@@ -2140,7 +2141,7 @@ E IN through 547
 E JJ first 771
 E NN half 144
 E VBN chosen 15
-E NN --unk_adj-- 57
+E NN --unk_adj-- 51
 E NNS pieces 25
 E NN none 34
 E JJR longer 28
@@ -2167,7 +2168,7 @@ E NN lead 33
 E NN Sky 1
 E VBD gave 83
 E NN opportunity 61
-E VB --unk-- 304
+E VB --unk-- 245
 E JJ high 315
 E NN register 1
 E RP off 304
@@ -2196,7 +2197,7 @@ E NN clarinet 2
 E VBG Keeping 4
 E NN mood 19
 E VBD chanted 3
-E VBD --unk-- 338
+E VBD --unk-- 305
 E NN way 388
 E VBN devised 6
 E NN alternative 27
@@ -2268,7 +2269,7 @@ E NNP Reich 6
 E NN Counterpoint 2
 E NN series 98
 E NNS works 27
-E VBP --unk-- 75
+E VBP --unk-- 60
 E JJ live 13
 E NN performer 4
 E JJ recorded 3
@@ -2409,6 +2410,7 @@ E NNS aides 22
 E VBN uncovered 7
 E NNP KGB 8
 E NNS plants 117
+E VBN --unk-- 462
 E NNP France 102
 E JJ mysterious 4
 E NN fire 45
@@ -2777,7 +2779,7 @@ E RB virtually 50
 E DT all 842
 E VBN planted 3
 E NNS hybrids 3
-E VB --unk_verb-- 103
+E VB --unk_verb-- 102
 E NN need 61
 E VBZ costs 28
 E CD 70 89
@@ -3122,7 +3124,7 @@ E NNS boys 7
 E NNS summers 2
 E JJ long 145
 E NN past 87
-E VBG --unk_noun-- 77
+E VBG --unk_noun-- 70
 E JJ Indian 22
 E NN soul 5
 E NN baseball 50
@@ -3149,7 +3151,7 @@ E NN contract 307
 E NN expansion 61
 E NNS plans 219
 E CD hundred 25
-E CD --unk_noun-- 4
+E CD --unk_noun-- 1
 E NNS greats 3
 E JJ near 22
 E RB hardly 27
@@ -3228,7 +3230,7 @@ E CD six 268
 E NNS cards 25
 E JJ Great 11
 E NN Man 5
-E PRP --unk-- 7
+E PRP --unk_upper-- 5
 E VBN autographed 2
 E NNS promoters 4
 E VBP hope 34
@@ -3313,7 +3315,7 @@ E RB easily 41
 E VBD tried 41
 E JJ nagging 4
 E NN afternoon 58
-E CD --unk-- 4
+E CD --unk-- 2
 E VBD drove 16
 E NNP Jim 28
 E NNP Gideon 2
@@ -3411,7 +3413,6 @@ E VB look 76
 E JJ stupid 6
 E VBZ vows 2
 E NNP Pittsburgh 39
-E NNP --unk_verb-- 19
 E NN baseman 2
 E NN sweat 4
 E NN brow 3
@@ -3485,6 +3486,7 @@ E CD 54 31
 E JJS oldest 5
 E VBN lost 74
 E NN speed 34
+E VBG --unk_upper-- 154
 E NN wad 4
 E NN cheek 2
 E VBZ admits 17
@@ -4603,7 +4605,7 @@ E CD 7.77 3
 E RB Typically 7
 E VBP offer 29
 E VBN considered 91
-E JJS --unk-- 39
+E JJS --unk-- 36
 E NN edge 21
 E VBP move 17
 E RB rapidly 39
@@ -4649,7 +4651,7 @@ E CD 8.32 7
 E VB reach 58
 E NNP French 19
 E CD 101 36
-E FW --unk-- 42
+E FW --unk-- 31
 E NN clipboard 2
 E VBD leaned 1
 E PRP$ my 212
@@ -4798,7 +4800,7 @@ E NN turn 35
 E NN progress 31
 E JJ chase 2
 E NN driver 7
-E VB --unk_noun-- 32
+E VB --unk_noun-- 27
 E NNS stretches 2
 E JJ attendant 2
 E NN ground 47
@@ -4848,7 +4850,7 @@ E NN motion 17
 E RB Only 48
 E VBG descending 2
 E RB tad 1
-E FW --unk_noun-- 4
+E FW --unk_noun-- 3
 E NN feel 4
 E UH well 5
 E NN picnic 2
@@ -4925,7 +4927,7 @@ E RB near 5
 E NN ride 16
 E JJ American 227
 E VBN left 74
-E RB --unk-- 48
+E RB --unk-- 29
 E JJ blase 1
 E VB resist 7
 E VBG rearing 1
@@ -5867,6 +5869,7 @@ E NN tape 34
 E PRP One 7
 E NN book 70
 E JJ crippling 2
+E VBZ --unk_upper-- 44
 E NNP Security 65
 E RP on 116
 E RB Finally 21
@@ -7556,6 +7559,7 @@ E VB drink 4
 E NNP Goya 5
 E NN Milk 2
 E JJ Hispanic 11
+E JJS --unk_upper-- 3
 E VBG trimming 5
 E NN fat 2
 E NN cholesterol 13
@@ -8300,6 +8304,7 @@ E VBZ recalls 35
 E NN speedometer 2
 E JJ boring 5
 E JJ boxy 4
+E RB --unk_upper-- 79
 E VBG hoping 27
 E VB spark 11
 E VBD transferred 6
@@ -8984,7 +8989,7 @@ E NN Committee 1
 E NNP Taxation 5
 E VBZ comprises 4
 E CD 330 5
-E NN --unk_verb-- 23
+E NN --unk_verb-- 20
 E VBZ advises 11
 E NNPS Chambers 1
 E NNP Mark 41
@@ -9008,12 +9013,13 @@ E VB thwart 5
 E NN checking 2
 E VBZ violates 7
 E NNP HUGO 2
+E VBD --unk_upper-- 33
 E NNS timberlands 2
 E NN delegation 15
 E NNS growers 13
 E NN hurricane 19
 E NN disaster 72
-E PRP$ --unk-- 1
+E PRP$ --unk_upper-- 1
 E VBZ weighs 5
 E VB stem 12
 E JJ nondeductible 2
@@ -10906,6 +10912,7 @@ E JJ rosy 3
 E NNS scenarios 9
 E NNP Bear 44
 E NNP Stearns 41
+E VB --unk_upper-- 68
 E JJ presumed 2
 E NNP Olympia 8
 E NNP Zell 4
@@ -11899,7 +11906,7 @@ E JJ doubtful 6
 E NNP Lakes 3
 E JJ northern 24
 E VBP supply 2
-E JJ --unk_verb-- 19
+E JJ --unk_verb-- 15
 E JJ toxic 7
 E NN ploy 3
 E VBP learn 7
@@ -12675,10 +12682,11 @@ E NNP Way 6
 E NNP Buying 3
 E NNP Roper 9
 E VBD conducted 5
-E RBR --unk_noun-- 4
+E RBR --unk_noun-- 3
 E NN gear 9
 E NN fitness 9
 E NN craze 3
+E JJR --unk_upper-- 4
 E NN swimming 4
 E NN aerobics 3
 E VB walk 12
@@ -12810,6 +12818,7 @@ E VBN sparked 9
 E JJ inflation-fighting 1
 E JJ weird 5
 E WP Who 25
+E PRP --unk-- 2
 E VB gon 1
 E TO na 5
 E NNS starters 3
@@ -13057,6 +13066,7 @@ E JJ rising 2
 E CD 48 48
 E RB NO 1
 E PRP YOU 5
+E VBP --unk_upper-- 15
 E VBZ lets 6
 E NN vacation 6
 E NNP Towers 2
@@ -13188,7 +13198,7 @@ E VBG vowing 3
 E NNS constraints 6
 E NN Hospital 2
 E NN Regulation 1
-E WDT --unk-- 2
+E WDT --unk_upper-- 2
 E VBZ IS 3
 E JJ runaway 6
 E NN regulation 27
@@ -13790,7 +13800,6 @@ E NN emergence 5
 E NN corporatism 3
 E VBN anticipated 21
 E NN System 1
-E VB --unk_adj-- 16
 E NN Reform 2
 E NN stage 30
 E JJ feckless 2
@@ -14370,7 +14379,7 @@ E JJ ancient 4
 E JJ Greek 3
 E NN kylix 4
 E VBN recovered 7
-E RB --unk_noun-- 6
+E RB --unk_noun-- 3
 E NNP Sotheby 52
 E NN burglary 5
 E JJ associate 16
@@ -14465,6 +14474,7 @@ E VBD notified 3
 E VBN convicted 24
 E NNS felons 2
 E NN upholstery 2
+E FW --unk_upper-- 12
 E FW --unk_punct-- 4
 E VB fool 2
 E NN fooling 1
@@ -15344,6 +15354,7 @@ E VB materialize 4
 E VBG reselling 3
 E NN snag 3
 E RB whatsoever 5
+E CD --unk_upper-- 5
 E VBG pledging 2
 E NNP Ernst 8
 E VB miss 9
@@ -16170,6 +16181,7 @@ E VBP permit 3
 E VBZ knocks 3
 E VBZ buys 18
 E VBZ attempts 5
+E VB --unk_adj-- 14
 E NNS bouts 3
 E NN rape 26
 E NN self-interest 3
@@ -16340,7 +16352,7 @@ E NN natural-gas 6
 E JJ natural-gas 3
 E RB intensely 6
 E VBZ transports 1
-E RB --unk_adv-- 6
+E RB --unk_adv-- 5
 E NNP Litvinchuk 2
 E VB welcome 5
 E JJ token 3
@@ -16985,7 +16997,7 @@ E VB beat 15
 E NNP Terry 14
 E JJ decisive 4
 E JJ home-run 1
-E MD --unk-- 3
+E MD --unk-- 1
 E VBN prevailed 1
 E NN Baseball 2
 E VBP ai 5
@@ -18018,7 +18030,6 @@ E NNS husbands 2
 E VBZ decreases 1
 E NNPS Patients 2
 E VB Be 6
-E JJR --unk-- 2
 E VBP bankrupt 1
 E VBP declare 1
 E VBP place 4
@@ -18248,7 +18259,7 @@ E NN crack 6
 E VBD bothered 1
 E VBG Smiling 2
 E NN hum 1
-E IN --unk-- 14
+E IN --unk_upper-- 13
 E NNP Individual 9
 E NNPS Accounts 2
 E RB incorrectly 10
@@ -18330,6 +18341,7 @@ E VB contend 3
 E VBP the 1
 E JJ chilling 3
 E VBN singled 4
+E IN --unk-- 2
 E VB antagonize 3
 E JJ opposed 2
 E VBZ voices 1
@@ -19316,7 +19328,7 @@ E VBN Translated 2
 E SYM e 2
 E SYM f 3
 E SYM --unk-- 1
-E UH --unk-- 15
+E UH --unk_upper-- 10
 E NN unraveling 3
 E CD 2791.41 2
 E VBD crumbled 1
@@ -23497,6 +23509,7 @@ E NNS rents 1
 E VBP squeeze 2
 E JJ Suburban 2
 E WRB WHY 2
+E MD --unk_upper-- 2
 E JJ American-style 2
 E NNP Richardson 5
 E VBN clustered 2
@@ -24491,7 +24504,6 @@ E NN anti-abortion 1
 E NNS curbs 8
 E NNP Mainstream 1
 E NNS moderates 5
-E IN --unk_adv-- 1
 E NNS Lawsuits 1
 E NNPS Disabilities 3
 E RB constitutionally 2
@@ -25159,6 +25171,7 @@ E VB aggravate 1
 E NNP Panetta 3
 E NN urgency 7
 E JJ fearful 5
+E RBR --unk_upper-- 1
 E VBZ chairs 4
 E NN garage 5
 E NNP Indian 14
@@ -27085,7 +27098,6 @@ E VBG whooping 1
 E NN snow 4
 E NN wag 2
 E JJ dense 2
-E NNS --unk_noun-- 1
 E NNS hog 1
 E NNS armadillos 2
 E NN glamour 4
@@ -27503,6 +27515,7 @@ E NN avenue 2
 E NN affiliation 2
 E NNP Liza 3
 E UH Hello 2
+E UH --unk-- 6
 E JJ irresistible 2
 E NNP Beauregard 4
 E NNP Houston-Montgomery 3
@@ -27677,6 +27690,7 @@ E JJ fluid 3
 E VBZ swings 1
 E JJ solo 1
 E NN accompaniment 2
+E NNP --unk-- 2
 E JJ virtuoso 1
 E NNS fireworks 2
 E NN brass 3
@@ -29285,7 +29299,7 @@ E VBZ eliminates 2
 E VBN defended 1
 E JJ socioeconomic 2
 E NN affirmative-action 3
-E DT --unk-- 2
+E DT --unk_upper-- 2
 E NNS suckers 3
 E NN sucker 2
 E VBP size 1
@@ -29457,7 +29471,6 @@ E VBN appalled 4
 E NNP Publisher 1
 E JJ Past 1
 E NNS leftists 2
-E VB --unk_adv-- 1
 E NNP Amon 2
 E NNP Gourlay 2
 E JJ problematic 3
@@ -31068,7 +31081,6 @@ E JJ cheated 1
 E NNP Tilly 2
 E NN audition 1
 E NNPS Blues 1
-E UH --unk_noun-- 1
 E VBZ photographs 1
 E JJ Married 2
 E NNPS Proteins 3
@@ -31874,14 +31886,13 @@ E VBG blowing 2
 E VBG willing 1
 E VB allowed 1
 E VBD fed 1
-E WRB --unk_noun-- 1
+E WRB --unk_upper-- 1
 E NNP NESB 2
 E NN Lung-cancer 2
 E VB abate 2
 E NNP Fraumeni 2
 E NN lung-cancer 7
 E NNP NCI 3
-E NNP --unk_adv-- 1
 E VBP promote 1
 E NNPS Males 2
 E NNPS Females 2
@@ -32029,7 +32040,7 @@ E NNP Zimbabwean 1
 E VB craft 1
 E JJ Zimbabwean 1
 E NNP SBA 3
-E RBS --unk-- 1
+E RBS --unk_upper-- 1
 E JJ business-to-business 1
 E VB phase 1
 E NNP THE 1

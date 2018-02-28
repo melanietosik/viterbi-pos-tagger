@@ -80,17 +80,17 @@ To evaluate the results on the development and test set, run:
 
 As usual, section 24 of the WSJ corpus is used as the development set. The tagged output file for the development set is [`output/wsj_24.pos`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/output/wsj_24.pos). The original corpus files are [`WSJ/WSJ_24.words`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_24.words) and [`WSJ/WSJ_24.pos`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/WSJ/WSJ_24.pos).
 
-Initially, Viterbi decoding with a uniform probability for unknown words and add-one smoothing gave a tagging accuracy of 92.88% on the development set. Adding morphological features to improve the handling of unknown words increased accuracy to a score of 93.13%. Finally, tuning the additive smoothing parameter resulted in a **tagging accuracy score of 95.09% on the development set**.
+Initially, Viterbi decoding with a uniform probability for unknown words and add-one smoothing gave a tagging accuracy of 92.88% on the development set. Adding morphological features to improve the handling of unknown words increased accuracy to a score of 93.34%. Finally, tuning the additive smoothing parameter resulted in a **tagging accuracy score of 95.31% on the development set**.
 
 For more details, please see [`docs/accuracy.md`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/accuracy.md).
 
 | alpha | accuracy score     |
 |------:|-------------------:|
-|   1.0 | 0.9313000334824826 |
-|   0.5 | 0.9398228472285636 |
-|   0.2 | 0.9452104830609077 |
-|   0.1 | 0.9477064499436886 |
-| 0.001 | 0.9508720664779472 |
+|   1.0 | 0.9334307369190028 |
+|   0.5 | 0.9419839892856056 |
+|   0.2 | 0.9474020637384714 |
+|   0.1 | 0.9498980306212522 |
+| 0.001 | 0.953063647155511 |
 
 Below is the classification report for the tagging accuracy on the development set.
 
@@ -116,9 +116,9 @@ Below is the classification report for the tagging accuracy on the development s
         JJS       0.96      0.94      0.95        53
          LS       1.00      0.60      0.75         5
          MD       1.00      0.98      0.99       339
-         NN       0.96      0.93      0.95      4541
-        NNP       0.92      0.95      0.93      3216
-       NNPS       0.76      0.51      0.61       127
+         NN       0.96      0.94      0.95      4541
+        NNP       0.94      0.97      0.95      3216
+       NNPS       0.77      0.51      0.62       127
         NNS       0.93      0.96      0.94      2050
         PDT       0.88      0.95      0.91        22
         POS       0.99      0.99      0.99       299
@@ -130,12 +130,12 @@ Below is the classification report for the tagging accuracy on the development s
          RP       0.54      0.89      0.67        87
         SYM       1.00      0.80      0.89        10
          TO       1.00      1.00      1.00       805
-         UH       0.20      0.25      0.22         4
+         UH       0.33      0.25      0.29         4
          VB       0.95      0.93      0.94      1010
-        VBD       0.93      0.90      0.92      1020
-        VBG       0.91      0.82      0.86       528
-        VBN       0.85      0.82      0.84       758
-        VBP       0.91      0.89      0.90       422
+        VBD       0.94      0.90      0.92      1020
+        VBG       0.93      0.82      0.87       528
+        VBN       0.85      0.82      0.83       758
+        VBP       0.92      0.89      0.90       422
         VBZ       0.94      0.95      0.94       701
         WDT       0.91      0.95      0.93       123
          WP       0.97      0.99      0.98        90

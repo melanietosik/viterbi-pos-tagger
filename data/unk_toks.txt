@@ -2,6 +2,7 @@
 --unk--
 --unk_digit--
 --unk_punct--
+--unk_upper--
 --unk_noun--
 --unk_verb--
 --unk_adj--
