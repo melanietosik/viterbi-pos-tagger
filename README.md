@@ -50,7 +50,7 @@ Please note that unless you run `rm -rf data/hmm*` to delete the old model files
 
 ## Evaluation
 
-The evaluation script is implemented in [`scripts/eval.py`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/eval.py). It prints a [text report](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html) showing the main classification metrics, as well as the overall [accuracy classification score](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html). It also writes a [confusion matrix](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.crosstab.html) to [`docs/confusion_matrix.csv`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/data/confusion_matrix.csv).
+The evaluation script is implemented in [`scripts/eval.py`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/scripts/eval.py). It prints a [text report](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html) showing the main classification metrics, as well as the overall [accuracy classification score](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html). It also writes a [confusion matrix](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.crosstab.html) to [`docs/confusion_matrix.csv`](https://github.com/melanietosik/viterbi-pos-tagger/blob/master/data/confusion_matrix.csv).
 
 ### Run the evaluation script
 
